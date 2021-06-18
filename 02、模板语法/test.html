@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1、插值(双大括号表达式)</h2>
+        <p>{{msg}}</p>
+        <p>{{msg.toUpperCase()}}</p>
+
+        <h2>2、指令一：强制数据绑定</h2>
+
+        <!-- 此时的url被当作字符串来解析了，而我们想要的是data中url这个属性的的值； -->
+        <a href="url">bilibili</a> <br>
+
+        <!-- v-bind指令 强制数据绑定————>当属性值是个动态的值时使用   -->
+        <a v-bind:href="url">bilibili</a>  <br> 
+        <!-- 简洁的写法 也就是说在属性名前加一个冒号就能让属性值是一个动态的值-->
+        <a :href="url">bilibili</a>   
+        
+        
+        <h2>3、指令二；绑定事件监听</h2>
+
+        <button v-on:click="test">test1</button>
+        <button @click="test">test1</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'I Will Back',
+                url:'https://www.bilibili.com/'
+            },
+            methods:{
+                test(event){
+                    alert(event.target.innerText)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world</title>
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-model="msg">
+        <p>Hello {{msg}}</p>
+    </div>
+    <div id="test2">{{msg}}</div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el:'#test',
+            data:{
+                msg:'sdfdfs'
+            }
+        })
+        new Vue({
+            data:{
+                msg:'live load实时加载的方式'
+            }
+        }).$mount('#test2');
+    </script>
+</body>
+</html>
